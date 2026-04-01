@@ -1,0 +1,99 @@
+:root {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-strong: #ffffff;
+  --text: #484848;
+  --text-muted: rgba(0, 0, 0, 0.75);
+  --subtle-text: rgba(0, 0, 0, 0.25);
+  --accent: #c0392b;
+  --border: rgba(0, 0, 0, 0.15);
+  --shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+  --divider: rgba(0, 0, 0, 0.26);
+}
+
+.light {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-strong: #ffffff;
+  --text: #484848;
+  --text-muted: rgba(0, 0, 0, 0.75);
+  --subtle-text: rgba(0, 0, 0, 0.25);
+  --accent: #c0392b;
+  --border: rgba(0, 0, 0, 0.15);
+  --shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+  --divider: rgba(0, 0, 0, 0.26);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-[1600px] px-4 sm:px-8 lg:px-10;
+}
+
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  @apply font-heading text-[42px] font-normal sm:text-[54px];
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  @apply mt-1 text-[15px] sm:text-[16px];
+}
+
+.body-copy {
+  color: var(--text-muted);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.type-caret::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 0.35rem;
+  background: currentColor;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-soft {
+  animation: float 5s ease-in-out infinite;
+}
+
+.theme-dark {
+  --bg: #000000;
+  --panel: #111111;
+  --panel-strong: #111111;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.85);
+  --subtle-text: rgba(255, 255, 255, 0.25);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 0 12px rgba(0, 0, 0, 0.55);
+  --divider: rgba(255, 255, 255, 0.54);
+}
