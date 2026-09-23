@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
-import { navItems, resumeUrl } from "@/components/portfolio-data";
+import { getNavItems, resumeUrl, uiStrings } from "@/components/portfolio-data";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useLanguage } from "@/context/language-context";
 
 type NavbarProps = {
   isDark: boolean;
@@ -11,6 +13,9 @@ type NavbarProps = {
 export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang } = useLanguage();
+  const navItems = getNavItems(lang);
+  const t = uiStrings[lang];
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 16);
@@ -33,13 +38,13 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
             : "border-transparent bg-[var(--bg)]/80"
         }`}
       >
-        <div className="section-shell flex items-center justify-between py-4">
+        <div className="section-shell flex items-center justify-between gap-2 py-3 sm:py-4">
           <button
             onClick={() => navigate("home")}
-            className="font-heading text-xl font-semibold tracking-wide"
+            className="shrink-0 font-heading text-lg font-semibold tracking-wide sm:text-xl"
           >
             <span className="text-[var(--text)]">&lt; </span>
-            <span className="font-script text-3xl text-[var(--accent)]">Hassoun</span>
+            <span className="font-script text-2xl text-[var(--accent)] sm:text-3xl">Hassoun</span>
             <span className="text-[var(--text)]"> /&gt;</span>
           </button>
 
@@ -48,7 +53,7 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
               <button
                 key={item.id}
                 onClick={() => navigate(item.id)}
-                className="rounded px-3 py-2 text-[13px] text-[var(--text)] transition hover:bg-[var(--accent)] hover:text-white"
+                className="rounded-full px-3 py-2 text-[13px] text-[var(--text)] transition hover:bg-[var(--accent)] hover:text-white"
               >
                 {item.label}
               </button>
@@ -57,31 +62,33 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
               href={resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="ml-2 rounded border border-[var(--accent)] px-4 py-2 text-[13px] font-medium text-[var(--text)] transition hover:bg-[var(--accent)] hover:text-white"
+              className="ml-2 rounded-full border-2 border-[var(--accent)] px-6 py-2 text-[13px] font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent)] hover:text-white"
             >
-              RESUME
+              {t.resume}
             </a>
+            <LanguageToggle />
             <button
               onClick={onToggleTheme}
-              aria-label="Toggle theme"
+              aria-label={t.toggleTheme}
               className="ml-2 p-2 text-[var(--text)]"
             >
               {isDark ? <FiSun /> : <FiMoon />}
             </button>
           </nav>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 lg:hidden">
+            <LanguageToggle />
             <button
               onClick={onToggleTheme}
-              aria-label="Toggle theme"
-              className="p-2 text-[var(--text)]"
+              aria-label={t.toggleTheme}
+              className="shrink-0 p-2 text-[var(--text)]"
             >
               {isDark ? <FiSun /> : <FiMoon />}
             </button>
             <button
               onClick={() => setIsOpen((value) => !value)}
-              aria-label="Open menu"
-              className="p-2 text-[var(--text)]"
+              aria-label={t.openMenu}
+              className="shrink-0 p-2 text-[var(--text)]"
             >
               {isOpen ? <FiX /> : <FiMenu />}
             </button>
@@ -109,9 +116,9 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
               href={resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="block border border-[var(--accent)] px-4 py-3 text-center font-medium text-[var(--text)]"
+              className="block rounded-full border border-[var(--accent)] px-4 py-3 text-center font-medium text-[var(--text)]"
             >
-              RESUME
+              {t.resume}
             </a>
           </div>
         </div>

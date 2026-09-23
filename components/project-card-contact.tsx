@@ -8,7 +8,7 @@ export function ProjectCardContact({ item }: ProjectCardContactProps) {
   const Icon = item.icon;
 
   return (
-    <article className="rounded-[10px] border p-8 text-center" style={{ background: "var(--panel)", borderColor: "var(--border)", boxShadow: "var(--shadow)" }}>
+    <article className="rounded-2xl border p-8 text-center" style={{ background: "var(--panel)", borderColor: "var(--border)", boxShadow: "var(--shadow)" }}>
       <div className="mx-auto flex h-16 w-16 items-center justify-center text-2xl text-[var(--accent)]">
         <Icon />
       </div>

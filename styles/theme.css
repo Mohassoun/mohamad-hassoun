@@ -5,9 +5,12 @@
   --text: #334155;
   --text-muted: rgba(51, 65, 85, 0.75);
   --subtle-text: rgba(51, 65, 85, 0.25);
-  --accent: #0284c7;
+  --accent: #6366f1;
+  --brand-secondary: #4338ca;
+  --brand-primary: #312e81;
+  --brand-gradient: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
   --border: rgba(15, 23, 42, 0.1);
-  --shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+  --shadow: 0 4px 20px rgba(49, 46, 129, 0.08);
   --divider: rgba(15, 23, 42, 0.15);
 }
 
@@ -18,9 +21,12 @@
   --text: #334155;
   --text-muted: rgba(51, 65, 85, 0.75);
   --subtle-text: rgba(51, 65, 85, 0.25);
-  --accent: #0284c7;
+  --accent: #6366f1;
+  --brand-secondary: #4338ca;
+  --brand-primary: #312e81;
+  --brand-gradient: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
   --border: rgba(15, 23, 42, 0.1);
-  --shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+  --shadow: 0 4px 20px rgba(49, 46, 129, 0.08);
   --divider: rgba(15, 23, 42, 0.15);
 }
 
@@ -38,10 +44,11 @@ body {
   background: var(--panel);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  border-radius: 1rem;
 }
 
 .section-title {
-  @apply font-heading text-[42px] font-normal sm:text-[54px];
+  @apply font-heading text-[42px] font-normal tracking-tight sm:text-[54px];
 }
 
 .section-subtitle {
@@ -93,7 +100,10 @@ body {
   --text: #f8fafc;
   --text-muted: rgba(248, 250, 252, 0.85);
   --subtle-text: rgba(248, 250, 252, 0.25);
-  --accent: #38bdf8;
+  --accent: #818cf8;
+  --brand-secondary: #6366f1;
+  --brand-primary: #4338ca;
+  --brand-gradient: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
   --border: rgba(248, 250, 252, 0.08);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
   --divider: rgba(248, 250, 252, 0.2);

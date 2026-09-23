@@ -3,15 +3,24 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiPlay } from "react-icons/fi";
-import { heroRoles } from "@/components/portfolio-data";
+import { heroContent } from "@/components/portfolio-data";
 import { SocialLinks } from "@/components/social-links";
+import { useLanguage } from "@/context/language-context";
 
 export function HeroSection() {
+  const { lang } = useLanguage();
+  const content = heroContent[lang];
+  const heroRoles = content.roles;
   const [roleIndex, setRoleIndex] = useState(0);
   const [typed, setTyped] = useState("");
 
   useEffect(() => {
-    const current = heroRoles[roleIndex];
+    setRoleIndex(0);
+    setTyped("");
+  }, [lang]);
+
+  useEffect(() => {
+    const current = heroRoles[roleIndex % heroRoles.length];
     let position = 0;
     const typeTimer = window.setInterval(() => {
       position += 1;
@@ -26,11 +35,11 @@ export function HeroSection() {
     }, 60);
 
     return () => window.clearInterval(typeTimer);
-  }, [roleIndex]);
+  }, [roleIndex, heroRoles]);
 
   return (
-    <section id="home" className="relative isolate overflow-hidden pt-20">
-      <div className="section-shell relative isolate min-h-[calc(100svh-5rem)]">
+    <section id="home" className="relative isolate overflow-hidden pt-28 sm:pt-24 lg:pt-20">
+      <div className="section-shell relative isolate min-h-[calc(100svh-7rem)] sm:min-h-[calc(100svh-6rem)] lg:min-h-[calc(100svh-5rem)]">
         <div className="hidden lg:block">
           <div className="pointer-events-none absolute inset-y-0 right-0 z-0 flex select-none items-end justify-end overflow-hidden opacity-90">
             <Image
@@ -44,11 +53,11 @@ export function HeroSection() {
           </div>
           <div className="relative z-10 ml-[3.75rem] pt-[5rem]">
             <div className="flex items-center gap-2 text-[15px]">
-              <p className="font-heading">WELCOME TO MY PORTFOLIO!</p>
+              <p className="font-heading">{content.welcome}</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
             </div>
             <div className="mt-5">
-              <h1 className="font-heading text-[60px] font-light leading-none">
+              <h1 className="font-heading text-[60px] font-light leading-none tracking-tight">
                 Mohamad <span className="font-bold">Hassoun</span>
               </h1>
             </div>
@@ -57,8 +66,7 @@ export function HeroSection() {
               <p className="type-caret">{typed}</p>
             </div>
             <p className="body-copy mt-5 max-w-[34rem] text-[16px] leading-8">
-              Full-stack developer based in Jeddah, Saudi Arabia with experience in React,
-              Laravel, Flutter, AWS serverless, and secure web applications.
+              {content.description}
             </p>
             <div className="mt-8">
               <SocialLinks />
@@ -78,11 +86,11 @@ export function HeroSection() {
           </div>
           <div className="relative z-10 ml-[2.5rem] pt-[4rem]">
             <div className="flex items-center gap-2 text-[13px]">
-              <p className="font-heading">WELCOME TO MY PORTFOLIO!</p>
+              <p className="font-heading">{content.welcome}</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
             </div>
             <div className="mt-5">
-              <h1 className="font-heading text-[50px] font-light leading-none">
+              <h1 className="font-heading text-[50px] font-light leading-none tracking-tight">
                 Mohamad <span className="font-bold">Hassoun</span>
               </h1>
             </div>
@@ -91,8 +99,7 @@ export function HeroSection() {
               <p className="type-caret">{typed}</p>
             </div>
             <p className="body-copy mt-5 max-w-[28rem] text-[15px] leading-7">
-              Full-stack developer based in Jeddah, Saudi Arabia with experience in React,
-              Laravel, Flutter, AWS serverless, and secure web applications.
+              {content.description}
             </p>
             <div className="mt-8">
               <SocialLinks />
@@ -100,23 +107,14 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[calc(100svh-6rem)] md:hidden">
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 flex select-none items-end justify-end overflow-hidden opacity-90">
-            <Image
-              src="/images/photos/black-white.png"
-              alt="Mohamad Hassoun"
-              width={440}
-              height={660}
-              className="h-full max-h-[calc(100svh-6rem)] w-auto max-w-[18rem] object-contain object-bottom"
-            />
-          </div>
-          <div className="relative z-10 pt-[2.5rem]">
+        <div className="flex flex-col md:hidden">
+          <div className="relative z-10 pt-2">
             <div className="flex items-center gap-2 text-[13px]">
-              <p className="font-heading">HEY THERE!</p>
+              <p className="font-heading">{content.welcomeMobile}</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
             </div>
             <div className="mt-3">
-              <h1 className="font-heading text-[42px] font-light leading-none">
+              <h1 className="font-heading text-[42px] font-light leading-none tracking-tight">
                 Mohamad <span className="font-bold">Hassoun</span>
               </h1>
             </div>
@@ -124,13 +122,21 @@ export function HeroSection() {
               <FiPlay className="text-[var(--accent)]" />
               <p className="type-caret">{typed}</p>
             </div>
-            <p className="body-copy mt-4 max-w-[14rem] text-[14px] leading-7">
-              Full-stack developer in Saudi Arabia focused on React, Laravel, Flutter, and
-              secure web applications.
+            <p className="body-copy mt-4 max-w-md text-[14px] leading-7">
+              {content.descriptionMobile}
             </p>
             <div className="mt-5">
               <SocialLinks />
             </div>
+          </div>
+          <div className="relative z-0 mx-auto mt-6 w-full max-w-xs">
+            <Image
+              src="/images/photos/black-white.png"
+              alt="Mohamad Hassoun"
+              width={440}
+              height={660}
+              className="h-auto w-full object-contain"
+            />
           </div>
         </div>
       </div>

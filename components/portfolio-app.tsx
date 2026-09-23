@@ -9,8 +9,9 @@ import { Navbar } from "@/components/navbar";
 import { ProjectsSection } from "@/components/projects-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ServicesSection } from "@/components/services-section";
+import { LanguageProvider } from "@/context/language-context";
 
-export function PortfolioApp() {
+function PortfolioInner() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -36,5 +37,13 @@ export function PortfolioApp() {
       <Footer />
       <ScrollToTop />
     </main>
+  );
+}
+
+export function PortfolioApp() {
+  return (
+    <LanguageProvider>
+      <PortfolioInner />
+    </LanguageProvider>
   );
 }

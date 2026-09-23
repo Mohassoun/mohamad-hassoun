@@ -3,9 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const siteUrl = "https://portfoliohassoun.web.app";
-const siteTitle = "Mohamad Hassoun | Full-Stack Developer in Saudi Arabia";
+const siteTitle = "Mohamad Hassoun | Full-Stack Developer in Paris, France";
 const siteDescription =
-  "Mohamad Hassoun is a full-stack developer based in Saudi Arabia with experience in React, Laravel, Flutter, AWS serverless, and secure web applications.";
+  "Mohamad Hassoun is a full-stack developer based in Paris, France, currently a Master's student at SUPINFO Paris, specializing in React, Laravel, Flutter, and secure web applications.";
 
 const montserrat = localFont({
   src: "../public/fonts/montserrat.ttf",
@@ -39,11 +39,11 @@ export const metadata: Metadata = {
   keywords: [
     "Mohamad Hassoun",
     "Mohamad Hassoun portfolio",
-    "Full-Stack Developer Saudi Arabia",
-    "React Developer Saudi Arabia",
-    "Laravel Developer Saudi Arabia",
-    "Flutter Developer Saudi Arabia",
-    "AWS serverless developer",
+    "Full-Stack Developer Paris",
+    "React Developer Paris",
+    "Laravel Developer Paris",
+    "Flutter Developer Paris",
+    "SUPINFO Paris",
     "secure web applications"
   ],
   alternates: {
@@ -102,8 +102,8 @@ const personJsonLd = {
   description: siteDescription,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Jeddah",
-    addressCountry: "SA"
+    addressLocality: "Paris",
+    addressCountry: "FR"
   },
   knowsAbout: [
     "React",

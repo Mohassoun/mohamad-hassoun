@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ServiceItem } from "@/components/portfolio-data";
+import { ServiceItem, uiStrings } from "@/components/portfolio-data";
+import { useLanguage } from "@/context/language-context";
 
 type ServiceCardProps = {
   service: ServiceItem;
@@ -11,6 +12,7 @@ type ServiceCardProps = {
 export function ServiceCard({ service }: ServiceCardProps) {
   const [flipped, setFlipped] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const { lang } = useLanguage();
 
   useEffect(() => {
     const syncTheme = () => {
@@ -42,7 +44,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
     >
       {!flipped ? (
         <div
-          className="flex h-full flex-col items-center justify-center rounded-[15px] border p-8 text-center transition hover:-translate-y-1"
+          className="flex h-full flex-col items-center justify-center rounded-2xl border p-8 text-center transition hover:-translate-y-1"
           style={{
             background: "var(--panel)",
             borderColor: "var(--border)",
@@ -60,7 +62,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </div>
       ) : (
         <div
-          className="flex h-full flex-col justify-between rounded-[15px] border p-6 text-left"
+          className="flex h-full flex-col justify-between rounded-2xl border p-6 text-left"
           style={{
             background: "var(--panel)",
             borderColor: "var(--border)",
@@ -78,9 +80,9 @@ export function ServiceCard({ service }: ServiceCardProps) {
             target="_blank"
             rel="noreferrer"
             onClick={(event) => event.stopPropagation()}
-            className="mt-6 inline-flex w-fit bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            className="mt-6 inline-flex w-fit rounded-full bg-[image:var(--brand-gradient)] px-6 py-3 text-sm font-medium text-white shadow-[0_4px_14px_rgba(99,102,241,0.39)] transition-all hover:brightness-110"
           >
-            HIRE ME!
+            {uiStrings[lang].hireMe}
           </a>
         </div>
       )}

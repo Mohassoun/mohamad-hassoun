@@ -1,13 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
-import { about, resumeUrl } from "@/components/portfolio-data";
+import { aboutContent, resumeUrl } from "@/components/portfolio-data";
 import { SectionHeading } from "@/components/section-heading";
+import { useLanguage } from "@/context/language-context";
 
 export function AboutSection() {
+  const { lang } = useLanguage();
+  const about = aboutContent[lang];
   return (
     <section id="about" className="py-20 sm:py-24">
       <div className="section-shell">
-        <SectionHeading title="About Me" subtitle="Get to know me :)" />
+        <SectionHeading title={about.sectionTitle} subtitle={about.sectionSubtitle} />
         <div className="mt-10 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="mx-auto max-w-md overflow-hidden">
             <Image
@@ -21,7 +26,7 @@ export function AboutSection() {
 
           <div className="space-y-6">
             <div>
-              <p className="text-[16px] accent-text">Who am I?</p>
+              <p className="text-[16px] accent-text">{about.whoAmI}</p>
               <h3 className="mt-4 font-heading text-[18px] font-bold sm:text-[20px]">
                 {about.headline}
               </h3>
@@ -29,7 +34,7 @@ export function AboutSection() {
             <p className="body-copy text-[15px] leading-8">{about.detail}</p>
 
             <div className="border-y py-6" style={{ borderColor: "var(--divider)" }}>
-              <p className="mb-4 text-[15px] accent-text">Technologies I have worked with:</p>
+              <p className="mb-4 text-[15px] accent-text">{about.techTitle}</p>
               <div className="flex flex-wrap gap-x-5 gap-y-3">
                 {about.technologies.map((tech) => (
                   <span
@@ -57,9 +62,9 @@ export function AboutSection() {
                 href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-[var(--accent)] px-6 py-3 text-[15px] transition hover:bg-[var(--accent)] hover:text-white"
+                className="rounded-full border border-[var(--accent)] px-6 py-3 text-[15px] transition hover:bg-[var(--accent)] hover:text-white"
               >
-                Resume
+                {about.resumeLabel}
               </a>
               <div className="h-px w-16" style={{ background: "var(--divider)" }} />
             </div>

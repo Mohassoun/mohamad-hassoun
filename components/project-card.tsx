@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-import { ProjectItem } from "@/components/portfolio-data";
+import { ProjectItem, uiStrings } from "@/components/portfolio-data";
+import { useLanguage } from "@/context/language-context";
 
 type ProjectCardProps = {
   project: ProjectItem;
@@ -11,13 +12,14 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
+  const { lang } = useLanguage();
   const safeHref = project.link === "hi" ? undefined : project.link;
 
   const content = (
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative min-h-[24rem] overflow-hidden rounded-[10px] border p-5"
+      className="group relative min-h-[24rem] overflow-hidden rounded-2xl border p-5"
       style={{ background: "var(--panel)", borderColor: "var(--border)", boxShadow: "var(--shadow)" }}
     >
       <div className={`absolute inset-0 transition-opacity duration-300 ${hovered ? "opacity-0" : "opacity-100"}`}>
@@ -51,7 +53,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <p className="body-copy mt-5 text-sm leading-7">{project.description}</p>
             <div className="mt-auto pt-6">
               <span className="inline-flex items-center gap-2 text-sm font-semibold accent-text">
-                View project
+                {uiStrings[lang].viewProject}
                 <FiArrowUpRight />
               </span>
             </div>
