@@ -27,8 +27,10 @@ export function Navbar({ isDark, onToggleTheme }: NavbarProps) {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition ${
-          isScrolled ? "bg-[var(--bg)]" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all ${
+          isScrolled
+            ? "border-[var(--border)] bg-[var(--bg)]/95 shadow-[var(--shadow)]"
+            : "border-transparent bg-[var(--bg)]/80"
         }`}
       >
         <div className="section-shell flex items-center justify-between py-4">

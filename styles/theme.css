@@ -1,27 +1,27 @@
 :root {
   --bg: #ffffff;
-  --panel: #ffffff;
-  --panel-strong: #ffffff;
-  --text: #484848;
-  --text-muted: rgba(0, 0, 0, 0.75);
-  --subtle-text: rgba(0, 0, 0, 0.25);
-  --accent: #c0392b;
-  --border: rgba(0, 0, 0, 0.15);
-  --shadow: 0 0 12px rgba(0, 0, 0, 0.35);
-  --divider: rgba(0, 0, 0, 0.26);
+  --panel: #f8fafc;
+  --panel-strong: #f1f5f9;
+  --text: #334155;
+  --text-muted: rgba(51, 65, 85, 0.75);
+  --subtle-text: rgba(51, 65, 85, 0.25);
+  --accent: #0284c7;
+  --border: rgba(15, 23, 42, 0.1);
+  --shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+  --divider: rgba(15, 23, 42, 0.15);
 }
 
 .light {
   --bg: #ffffff;
-  --panel: #ffffff;
-  --panel-strong: #ffffff;
-  --text: #484848;
-  --text-muted: rgba(0, 0, 0, 0.75);
-  --subtle-text: rgba(0, 0, 0, 0.25);
-  --accent: #c0392b;
-  --border: rgba(0, 0, 0, 0.15);
-  --shadow: 0 0 12px rgba(0, 0, 0, 0.35);
-  --divider: rgba(0, 0, 0, 0.26);
+  --panel: #f8fafc;
+  --panel-strong: #f1f5f9;
+  --text: #334155;
+  --text-muted: rgba(51, 65, 85, 0.75);
+  --subtle-text: rgba(51, 65, 85, 0.25);
+  --accent: #0284c7;
+  --border: rgba(15, 23, 42, 0.1);
+  --shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+  --divider: rgba(15, 23, 42, 0.15);
 }
 
 body {
@@ -87,13 +87,25 @@ body {
 }
 
 .theme-dark {
-  --bg: #000000;
-  --panel: #111111;
-  --panel-strong: #111111;
-  --text: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.85);
-  --subtle-text: rgba(255, 255, 255, 0.25);
-  --border: rgba(255, 255, 255, 0.08);
-  --shadow: 0 0 12px rgba(0, 0, 0, 0.55);
-  --divider: rgba(255, 255, 255, 0.54);
+  --bg: #020617;
+  --panel: #0f172a;
+  --panel-strong: #1e293b;
+  --text: #f8fafc;
+  --text-muted: rgba(248, 250, 252, 0.85);
+  --subtle-text: rgba(248, 250, 252, 0.25);
+  --accent: #38bdf8;
+  --border: rgba(248, 250, 252, 0.08);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+  --divider: rgba(248, 250, 252, 0.2);
+}
+
+/* Social icons are black SVGs rendered via next/image (<img>),
+   so currentColor can't reach them. Invert to white in dark mode
+   and on accent hover in both modes. */
+.theme-dark .social-icon-img {
+  filter: brightness(0) invert(1);
+}
+
+.group:hover .social-icon-img {
+  filter: brightness(0) invert(1);
 }

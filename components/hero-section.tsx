@@ -29,20 +29,20 @@ export function HeroSection() {
   }, [roleIndex]);
 
   return (
-    <section id="home" className="relative overflow-hidden pt-20">
-      <div className="section-shell relative min-h-[calc(100svh-5rem)]">
+    <section id="home" className="relative isolate overflow-hidden pt-20">
+      <div className="section-shell relative isolate min-h-[calc(100svh-5rem)]">
         <div className="hidden lg:block">
-          <div className="absolute bottom-0 right-0 opacity-90">
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 flex select-none items-end justify-end overflow-hidden opacity-90">
             <Image
               src="/images/photos/black-white.png"
               alt="Mohamad Hassoun"
               width={780}
               height={960}
               priority
-              className="h-auto w-[38rem]"
+              className="h-full max-h-[calc(100svh-5rem)] w-auto max-w-[38rem] object-contain object-bottom"
             />
           </div>
-          <div className="ml-[3.75rem] pt-[5rem]">
+          <div className="relative z-10 ml-[3.75rem] pt-[5rem]">
             <div className="flex items-center gap-2 text-[15px]">
               <p className="font-heading">WELCOME TO MY PORTFOLIO!</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
@@ -67,16 +67,16 @@ export function HeroSection() {
         </div>
 
         <div className="hidden md:block lg:hidden">
-          <div className="absolute bottom-0 right-0 opacity-90">
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 flex select-none items-end justify-end overflow-hidden opacity-90">
             <Image
               src="/images/photos/black-white.png"
               alt="Mohamad Hassoun"
               width={650}
               height={860}
-              className="h-auto w-[31rem]"
+              className="h-full max-h-[calc(100svh-5rem)] w-auto max-w-[31rem] object-contain object-bottom"
             />
           </div>
-          <div className="ml-[2.5rem] pt-[4rem]">
+          <div className="relative z-10 ml-[2.5rem] pt-[4rem]">
             <div className="flex items-center gap-2 text-[13px]">
               <p className="font-heading">WELCOME TO MY PORTFOLIO!</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
@@ -101,16 +101,16 @@ export function HeroSection() {
         </div>
 
         <div className="relative min-h-[calc(100svh-6rem)] md:hidden">
-          <div className="absolute bottom-0 -right-16 opacity-90">
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-0 flex select-none items-end justify-end overflow-hidden opacity-90">
             <Image
               src="/images/photos/black-white.png"
               alt="Mohamad Hassoun"
               width={440}
               height={660}
-              className="h-auto w-[18rem]"
+              className="h-full max-h-[calc(100svh-6rem)] w-auto max-w-[18rem] object-contain object-bottom"
             />
           </div>
-          <div className="pt-[2.5rem]">
+          <div className="relative z-10 pt-[2.5rem]">
             <div className="flex items-center gap-2 text-[13px]">
               <p className="font-heading">HEY THERE!</p>
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
