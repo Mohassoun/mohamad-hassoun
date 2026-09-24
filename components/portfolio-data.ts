@@ -152,7 +152,7 @@ export const aboutContent: Record<
     technologies: ["Dart", "JavaScript", "Python", "PHP", "C", "C#"],
     facts: [
       { label: "Nom", value: "Mohamad Hassoun" },
-      { label: "Âge", value: "29" },
+      { label: "Âge", value: "27" },
       { label: "Résidence actuelle", value: "Paris, France" },
       { label: "Email", value: "mohamadhassoun21698@gmail.com" },
       { label: "Origine", value: "El Sfireh, Liban" }
@@ -171,7 +171,7 @@ export const aboutContent: Record<
     technologies: ["Dart", "JavaScript", "Python", "PHP", "C", "C#"],
     facts: [
       { label: "Name", value: "Mohamad Hassoun" },
-      { label: "Age", value: "29" },
+      { label: "Age", value: "27" },
       { label: "Current Residence", value: "Paris, France" },
       { label: "Email", value: "mohamadhassoun21698@gmail.com" },
       { label: "From", value: "El Sfireh, Lebanon" }
