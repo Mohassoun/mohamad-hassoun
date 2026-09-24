@@ -10,9 +10,14 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ServicesSection } from "@/components/services-section";
 import { LanguageProvider } from "@/context/language-context";
+import { initAnalytics } from "@/lib/firebase";
 
 function PortfolioInner() {
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("portfolio-theme");

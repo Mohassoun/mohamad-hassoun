@@ -80,7 +80,7 @@ export const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mohamad-hassoun-788949234",
+    href: "https://www.linkedin.com/in/mohammadhassoun1/",
     icon: "/images/icons/social-linkedin.svg"
   },
   {

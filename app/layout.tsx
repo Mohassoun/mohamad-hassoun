@@ -98,7 +98,12 @@ const personJsonLd = {
   name: "Mohamad Hassoun",
   url: siteUrl,
   image: `${siteUrl}/images/photos/colored.png`,
-  jobTitle: "Full-Stack Developer",
+  jobTitle: "Lead Programmer & Tech Founder",
+  worksFor: {
+    "@type": "Organization",
+    name: "LahaLak",
+    url: "https://lahalak.sa"
+  },
   description: siteDescription,
   address: {
     "@type": "PostalAddress",
@@ -115,8 +120,8 @@ const personJsonLd = {
   ],
   sameAs: [
     siteUrl,
-    "https://www.linkedin.com/in/mohamad-hassoun-788949234",
     "https://github.com/Mohassoun",
+    "https://www.linkedin.com/in/mohammadhassoun1/",
     "https://www.threads.net/@mhamadhassoun45/post/Cud6WmTt9Ds/?igshid=NTc4MTIwNjQ2YQ==",
     "https://twitter.com/mohamad1p1/status/1689104891761811456?t=2Vm0zNdRCy8eWDf2voVlNg&s=19"
   ]
