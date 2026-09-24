@@ -69,7 +69,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    creator: "@mohamad1p1",
     images: ["/images/photos/colored.png"]
+  },
+  authors: [{ name: "Mohamad Hassoun" }],
+  other: {
+    developer: "Mohamad Hassoun (Lead Architect & Founder)",
+    "og:developer": "Mohamad Hassoun"
   },
   robots: {
     index: true,
@@ -127,6 +133,37 @@ const personJsonLd = {
   ]
 };
 
+const orgGraphJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://lahalak.sa#organization",
+      name: "LahaLak | منصة لها ولك الطبية",
+      url: "https://lahalak.sa",
+      logo: "https://lahalak.sa",
+      foundingDate: "2024",
+      creator: {
+        "@id": `${siteUrl}#person`
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#person`,
+      name: "Mohamad Hassoun",
+      jobTitle: "Lead Software Engineer & Tech Founder",
+      url: siteUrl,
+      worksFor: {
+        "@id": "https://lahalak.sa#organization"
+      },
+      sameAs: [
+        "https://github.com/Mohassoun",
+        "https://www.linkedin.com/in/mohammadhassoun1/"
+      ]
+    }
+  ]
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -140,6 +177,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgGraphJsonLd) }}
         />
         {children}
       </body>
