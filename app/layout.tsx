@@ -31,6 +31,9 @@ const agustina = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: "YM5lK14qO81YQ-bah8pVd33wUwdwilM9fKNkxsYI7Uc"
+  },
   title: {
     default: siteTitle,
     template: "%s | Mohamad Hassoun"
