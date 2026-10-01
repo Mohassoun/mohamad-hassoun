@@ -461,7 +461,7 @@ export const contactContent: Record<
     sectionSubtitle: "Construisons quelque chose ensemble :)",
     items: [
       { title: "Localisation", detail: "Paris, France" },
-      { title: "Téléphone ou WhatsApp", detail: "+961 3141362, +966 53 294 2434" },
+      { title: "Téléphone ou WhatsApp", detail: "+961 3141362, +33 6 05 78 20 63" },
       { title: "Email", detail: "mohamadhassoun21698@gmail.com" }
     ]
   },
@@ -470,7 +470,7 @@ export const contactContent: Record<
     sectionSubtitle: "Let's build something together :)",
     items: [
       { title: "Location", detail: "Paris, France" },
-      { title: "Phone or WhatsApp", detail: "+961 3141362, +966 53 294 2434" },
+      { title: "Phone or WhatsApp", detail: "+961 3141362, +33 6 05 78 20 63" },
       { title: "Email", detail: "mohamadhassoun21698@gmail.com" }
     ]
   }

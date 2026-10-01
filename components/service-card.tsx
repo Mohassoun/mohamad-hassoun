@@ -76,7 +76,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             </p>
           </div>
           <a
-            href="https://wa.me/966532942434"
+            href="https://wa.me/33605782063"
             target="_blank"
             rel="noreferrer"
             onClick={(event) => event.stopPropagation()}
