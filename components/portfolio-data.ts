@@ -123,8 +123,7 @@ export const heroContent: Record<
 // Legacy
 export const heroRoles = heroContent.en.roles;
 
-export const resumeUrl =
-  "https://firebasestorage.googleapis.com/v0/b/tripoli-soap.appspot.com/o/MohamadHassoun%20CV.pdf?alt=media&token=03b9345c-2cfb-4894-bd0e-9db13e547495";
+export const resumeUrl = "/MohamadHassoun-CV.pdf";
 
 export const aboutContent: Record<
   Language,
