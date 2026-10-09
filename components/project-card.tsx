@@ -12,6 +12,8 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
+  const [bannerLoaded, setBannerLoaded] = useState(false);
+  const [iconLoaded, setIconLoaded] = useState(false);
   const { lang } = useLanguage();
   const safeHref = project.link === "hi" ? undefined : project.link;
 
@@ -23,12 +25,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
       style={{ background: "var(--panel)", borderColor: "var(--border)", boxShadow: "var(--shadow)" }}
     >
       <div className={`absolute inset-0 transition-opacity duration-300 ${hovered ? "opacity-0" : "opacity-100"}`}>
+        {!bannerLoaded && <div className="skeleton-shimmer absolute inset-0" aria-hidden="true" />}
         <Image
           src={project.banner}
           alt={`${project.title} banner`}
           fill
-          className="object-cover"
+          className={`object-cover transition-opacity duration-500 ${bannerLoaded ? "opacity-100" : "opacity-0"}`}
           sizes="(max-width: 768px) 100vw, 33vw"
+          onLoad={() => setBannerLoaded(true)}
+          onError={() => setBannerLoaded(true)}
         />
       </div>
 
@@ -41,13 +46,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {hovered ? (
           <>
             <div className="flex items-center gap-4">
-              <Image
-                src={project.icon}
-                alt={project.title}
-                width={56}
-                height={56}
-                className="h-14 w-14 object-contain"
-              />
+              <div className="relative h-14 w-14 shrink-0">
+                {!iconLoaded && <div className="skeleton-shimmer absolute inset-0 rounded-xl" aria-hidden="true" />}
+                <Image
+                  src={project.icon}
+                  alt={project.title}
+                  width={56}
+                  height={56}
+                  className={`h-14 w-14 object-contain transition-opacity duration-500 ${iconLoaded ? "opacity-100" : "opacity-0"}`}
+                  onLoad={() => setIconLoaded(true)}
+                  onError={() => setIconLoaded(true)}
+                />
+              </div>
               <h3 className="font-heading text-xl font-semibold">{project.title}</h3>
             </div>
             <p className="body-copy mt-5 text-sm leading-7">{project.description}</p>
