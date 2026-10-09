@@ -90,9 +90,9 @@ export function HeroSection() {
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
             </div>
             <div className="mt-5">
-              <h1 className="font-heading text-[50px] font-light leading-none tracking-tight">
+              <p className="font-heading text-[50px] font-light leading-none tracking-tight">
                 Mohamad <span className="font-bold">Hassoun</span>
-              </h1>
+              </p>
             </div>
             <div className="mt-4 flex items-center gap-1 text-[18px]">
               <FiPlay className="text-[var(--accent)]" />
@@ -114,9 +114,9 @@ export function HeroSection() {
               <Image src="/images/misc/hi.gif" alt="Hi" width={18} height={18} />
             </div>
             <div className="mt-3">
-              <h1 className="font-heading text-[42px] font-light leading-none tracking-tight">
+              <p className="font-heading text-[42px] font-light leading-none tracking-tight">
                 Mohamad <span className="font-bold">Hassoun</span>
-              </h1>
+              </p>
             </div>
             <div className="mt-3 flex items-center gap-1 text-[16px]">
               <FiPlay className="text-[var(--accent)]" />

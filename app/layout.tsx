@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
 const siteUrl = "https://portfoliohassoun.web.app";
-const siteTitle = "Mohamad Hassoun | Full-Stack Developer in Paris, France";
+const siteTitle = "Mohamad Hassoun | Développeur Full-Stack à Paris, France";
 const siteDescription =
-  "Mohamad Hassoun is a full-stack developer based in Paris, France, currently a Master's student at SUPINFO Paris, specializing in React, Laravel, Flutter, and secure web applications.";
+  "Mohamad Hassoun, développeur full-stack basé à Paris, France — étudiant en Master à SUPINFO Paris, spécialisé en React, Laravel, Flutter et applications web sécurisées.";
 
 const montserrat = localFont({
   src: "../public/fonts/montserrat.ttf",
@@ -29,6 +29,12 @@ const agustina = localFont({
   variable: "--font-agustina"
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#6366f1"
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   verification: {
@@ -41,13 +47,13 @@ export const metadata: Metadata = {
   description: siteDescription,
   keywords: [
     "Mohamad Hassoun",
-    "Mohamad Hassoun portfolio",
-    "Full-Stack Developer Paris",
-    "React Developer Paris",
-    "Laravel Developer Paris",
-    "Flutter Developer Paris",
+    "Développeur Full-Stack Paris",
+    "Développeur React Paris",
+    "Développeur Laravel Paris",
+    "Développeur Flutter Paris",
     "SUPINFO Paris",
-    "secure web applications"
+    "Création site web Paris",
+    "Applications web sécurisées"
   ],
   alternates: {
     canonical: "/"
@@ -58,7 +64,8 @@ export const metadata: Metadata = {
     siteName: "Mohamad Hassoun Portfolio",
     title: siteTitle,
     description: siteDescription,
-    locale: "en_US",
+    locale: "fr_FR",
+    alternateLocale: ["en_US"],
     images: [
       {
         url: "/images/photos/colored.png",
@@ -99,6 +106,14 @@ export const metadata: Metadata = {
     shortcut: "/icons/Icon-192.png",
     apple: "/icons/Icon-192.png"
   }
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Mohamad Hassoun Portfolio",
+  url: siteUrl,
+  inLanguage: ["fr-FR", "en-US"]
 };
 
 const personJsonLd = {
@@ -173,10 +188,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body
         className={`${montserrat.variable} ${poppins.variable} ${agustina.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
