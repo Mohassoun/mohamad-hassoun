@@ -56,7 +56,11 @@ export const metadata: Metadata = {
     "Applications web sécurisées"
   ],
   alternates: {
-    canonical: "/"
+    canonical: "/",
+    languages: {
+      fr: "/",
+      en: "/en"
+    }
   },
   openGraph: {
     type: "website",
