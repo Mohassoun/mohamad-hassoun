@@ -123,7 +123,7 @@ export const heroContent: Record<
 // Legacy
 export const heroRoles = heroContent.en.roles;
 
-export const resumeUrl = "/MohamadHassoun-CV.pdf";
+export const resumeUrl = "/resume.pdf";
 
 export const aboutContent: Record<
   Language,
